@@ -8,31 +8,36 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+function altFunc(){
+	alert("HELLO!");
+	$(".btn_3").addClass("on");
+}
+
+function altRemove(){
+	alert("REMOVE!");
+	$(".btn_3").removeClass("on");
+}
+
+function btn2On() {
+	alert("Java!");
+}
+
+function btn3On() {
+	alert("jQuery!");
+}
+
 $(function() {
-    function altFunc(){
-		alert("HELLO!");
-		$(".btn_3").addClass("on");
-    }
-    
-    function altRemove(){
-		alert("REMOVE!");
-		$(".btn_3").removeClass("on");
-    }
-    
-	$(".btn_1").on({
-		"mouseover focus": altFunc,
-		"mouseout blur": altRemove
+	$(".btn_1.on").on({
+		"mouseover focus": altFunc
+		 ,
+		"mouseout blur": altRemove 
 	});
 	$(".btn_1").addClass("on");
 	
-	$(document).on("mouseover focus", ".btn_2.on", function() {
-	    alert("Java!");
-	});
+	$(document).on("mouseover focus", ".btn_2.on", btn2On);
 	$(".btn_2").addClass("on");
 	
-	$("p").on("mouseover focus", ".btn_3", function() {
-	    alert("jQuery!");
-	});
+	$("p").on("mouseover focus", ".btn_3", btn3On); 
 	
 });
 </script>
